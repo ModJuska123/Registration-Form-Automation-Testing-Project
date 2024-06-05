@@ -95,6 +95,6 @@ describe ("Registration form validation", () => {
       and("contain", "Username is required")
       and("contain", "Email is required")
       and("contain", "Password is required")
-      and("contain", "Date of Birth is required")
+      and("contain", "Date of Birth is required");
   })
 });
