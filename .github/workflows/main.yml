@@ -1,0 +1,32 @@
+name: Node.js Package
+
+on:
+  push:
+    branches:
+      - main  # Specify the branches you want to trigger this workflow on
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Start server
+        run: |
+          npm start &
+          echo "Server started"
+        env:
+          NODE_ENV: test
+
+      - name: Run Cypress tests
+        run: npx cypress run
