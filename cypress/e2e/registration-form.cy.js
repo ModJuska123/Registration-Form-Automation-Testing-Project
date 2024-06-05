@@ -51,3 +51,32 @@ describe('registration form submit functionality', () => {
     cy.get(".submitted-info").should("contain", "Age: 34")
   })
 })
+
+
+describe('registration form data validation', () => {
+  
+  it('checks validity of Username, Email, Password, and Date of Birth', () => {
+    // Goes to the registration page
+    cy.visit('http://localhost:5173')
+
+    // Username validation: not shorter than 1 symbol
+    cy.get('input[name="username"]').type('a')
+    cy.get('form').submit()
+    cy.get('input[name="username"]').should('have.value', 'a')
+
+    // Email validation: should have "@" and "." symbols and symbols before "@", after and after "."
+    cy.get('input[name="email"]').type('test@example.com')
+    cy.get('form').submit()
+    cy.get('input[name="email"]').should('have.value', 'test@example.com')
+
+    // Password validation: not shorter than 6 symbols
+    cy.get('input[name="password"]').type('abcdef')
+    cy.get('form').submit()
+    cy.get('input[name="password"]').should('have.value', 'abcdef')
+
+    // Date of Birth validation: allow entering year, month, and date
+    cy.get('input[name="dob"]').type('2000-01-01')
+    cy.get('form').submit()
+    cy.get('input[name="dob"]').should('have.value', '2000-01-01') 
+  })
+})
