@@ -1,32 +1,19 @@
-name: Node.js Package
+name: E2E on Chrome
 
-on:
-  push:
-    branches:
-      - main  # Specify the branches you want to trigger this workflow on
+on: [push]
 
 jobs:
-  build:
+  install:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v3
         with:
-          node-version: 16
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Start server
-        run: |
-          npm start &
-          echo "Server started"
-        env:
-          NODE_ENV: test
-
-      - name: Run Cypress tests
-        run: npx cypress run
+          project: ./site
+          browser: chrome
+          build: yarn build
+          start: yarn start
+          wait-on: "http://localhost:3000"
