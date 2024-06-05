@@ -1,5 +1,13 @@
 {
-  "name": "Using fixtures to represent data",
-  "email": "hello@cypress.io",
-  "body": "Fixtures are a great way to mock data for responses to routes"
+  "baseUrl": "http://localhost:5173",
+  "video": false,
+  "screenshotOnRunFailure": true,
+  "viewportWidth": 1280,
+  "viewportHeight": 720,
+  "defaultCommandTimeout": 10000,
+  "pageLoadTimeout": 60000,
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  }
 }
