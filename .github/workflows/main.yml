@@ -22,7 +22,9 @@ jobs:
         run: npm ci
 
       - name: Start server
-        run: npm start &
+        run: |
+          npm start &
+          echo "Server started"
         env:
           NODE_ENV: test
 
