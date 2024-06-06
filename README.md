@@ -2,6 +2,8 @@
 
 This is simple React+Vite application with implemented Cypress tests and GitHub workflow used. This template provides a minimal setup to download and run the application, run tests and GitHub Action Workflow. 
 
+![image info](./pictures/cypress.png)
+
 ## 📑 Table of Contents
 - Installation
 - Running Tests
