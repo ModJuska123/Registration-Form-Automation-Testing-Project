@@ -73,11 +73,13 @@ describe("Registration form validation", () => {
   it("should display validation errors for invalid email", () => {
     cy.fillFormAndSubmit(
       correctUsername,
-      "invalid-email",
+      'my-email',
       correctPassword,
       correctBirthDate
     );
-    cy.get(".error").should("be.visible").and("contain", "Email is invalid");
+    cy.get(".error")
+    .should("be.visible")
+    .and("contain", "Email is invalid");
   });
 
   it("should display validation errors for short password", () => {
