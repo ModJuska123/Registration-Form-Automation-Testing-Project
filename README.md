@@ -16,34 +16,35 @@ git clone https://github.com/ModJuska123/Registration-Form-Automation-Testing-Pr
 cd your-repo-name
 npm install
 ```
-# Running the Application
+## Running the Application
 Start the development server:
 
-bash```
+```bash
 npm run dev
 ```
 
-Navigate to http://localhost:3000 to see the application.
+Navigate to http://localhost:5173 to see the application.
 
-# Running Tests
+## Running Tests
 This project uses Cypress for end-to-end testing.
 
 Open Cypress Test Runner
 
-bash```
-npm run cy:open
+```bash
+npm run cypress
 ```
 
-# Run Cypress Tests in Headless Mode
+## Run Cypress Tests in Headless Mode
 
-bash```
-npm run cy:run
+```bash
+npm run test:ci
+
 ```
 
 GitHub Actions Workflow
 GitHub Actions is used for CI/CD. The workflow is in .github/workflows.
 
-# Workflow Configuration
+## Workflow Configuration
 .github/workflows/ci.yml:
 
 bash```
