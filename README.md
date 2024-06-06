@@ -1,31 +1,24 @@
-# Registration-Form-Automation-Testing-Project
+# 🔄Registration-Form-Automation-Testing-Project
+![image info](./pictures/cypress.jpg)
 
 This is simple React+Vite application with implemented Cypress tests and GitHub workflow used. This template provides a minimal setup to download and run the application, run tests and GitHub Action Workflow. 
 
-## Table of Contents
+## 📑Table of Contents
 - Installation
-- Running the Application
 - Running Tests
 - GitHub Actions Workflow
+- Viewing the Workflow on GitHub
 
-## Installation
+## 🚀Installation
 To get started, clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/ModJuska123/Registration-Form-Automation-Testing-Project/tree/main
+git clone https://github.com/ModJuska123/Registration-Form-Automation-Testing-Project
 cd your-repo-name
-npm install
-```
-## Running the Application
-Start the development server:
-
-```bash
-npm run dev
+npm install -y
 ```
 
-Navigate to http://localhost:5173 to see the application.
-
-## Running Tests
+## 🎉Running Tests
 This project uses Cypress for end-to-end testing.
 
 Open Cypress Test Runner
@@ -33,57 +26,24 @@ Open Cypress Test Runner
 ```bash
 npm run cypress
 ```
+Navigate to http://localhost:5173 to see the application.
 
-## Run Cypress Tests in Headless Mode
+## 🧪Run Cypress Tests in Headless Mode
 
 ```bash
 npm run test:ci
 
 ```
 
-GitHub Actions Workflow
+## 🎬GitHub Actions Workflow
+
 GitHub Actions is used for CI/CD. The workflow is in .github/workflows.
 
-## Workflow Configuration
-.github/workflows/ci.yml:
+## 🎥Viewing the Workflow on GitHub
+To view and monitor the GitHub Actions workflow:
 
-bash```
-yaml
-Copy code
-name: CI
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run lint
-        run: npm run lint
-
-      - name: Run tests
-        run: npm run test
-
-      - name: Run Cypress tests
-        run: npm run cy:run
-```
-
-
+- Go to your repository on GitHub.
+- Click on the Actions tab at the top of the page.
+- You will see a list of workflows. 
+- Click on the workflow you are interested in.
+- Here, you can see the status of your workflow runs, logs, and any errors or warnings.
