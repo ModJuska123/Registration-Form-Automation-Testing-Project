@@ -1,4 +1,4 @@
-//1 part
+
 describe("registration form display functionality", () => {
   beforeEach(() => {
     cy.visit("http://localhost:5173");
@@ -29,22 +29,17 @@ describe("registration form display functionality", () => {
   });
 });
 
-//2 part
+
 describe("registration form submit functionality", () => {
   it("sees submitted information with username, email, date of birth", () => {
-    // Customer goes to page
+    
     cy.visit("http://localhost:5173");
 
-    // Fill the form
     cy.get("input[name='username']").type("user");
     cy.get("input[name='email']").type("user@gmail.com");
     cy.get("input[name='password']").type("456123");
-    cy.get("input[name='dob']").type("1990-01-01"); // Corrected date format
-
-    // Submit the form
+    cy.get("input[name='dob']").type("1990-01-01");
     cy.contains("button", "Submit").click();
-
-    // Check for the specific content
     cy.get(".submitted-info").should("contain", "Username: user");
     cy.get(".submitted-info").should("contain", "Email: user@gmail.com");
     cy.get(".submitted-info").should("contain", "Date of Birth: 1990-01-01");
@@ -52,7 +47,7 @@ describe("registration form submit functionality", () => {
   });
 });
 
-// 3 part
+
 describe("Registration form validation", () => {
   let correctUsername = "user";
   let correctEmail = "user@gmail.com";
@@ -77,6 +72,7 @@ describe("Registration form validation", () => {
       correctPassword,
       correctBirthDate
     );
+
     cy.get(".error")
     .should("be.visible")
     .and("contain", "Email is invalid");
@@ -89,6 +85,7 @@ describe("Registration form validation", () => {
       "321",
       correctBirthDate
     );
+
     cy.get(".error")
       .should("be.visible")
       .and("contain", "Password must be at least 6 characters");
@@ -101,6 +98,7 @@ describe("Registration form validation", () => {
       correctPassword,
       correctBirthDate
     );
+    
     cy.get('[name="dob"]').should("have.attr", "type", "date");
   });
 });
