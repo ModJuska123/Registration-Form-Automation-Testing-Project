@@ -1,21 +1,18 @@
 # Registration-Form-Automation-Testing-Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules. 
+This is simple React+Vite application with implemented Cypress tests and GitHub workflow used. This template provides a minimal setup to download and run the application, run tests and GitHub Action Workflow. 
 
-Brief description of your project.
+## Table of Contents
+    - Installation
+    - Running the Application
+    - Running Tests
+    - GitHub Actions Workflow
 
-Table of Contents
-Installation
-Running the Application
-Running Tests
-GitHub Actions Workflow
-Contributing
-License
-Installation
+## Installation
 To get started, clone the repository and install dependencies:
 
-bash```
-git clone https://github.com/your-username/your-repo-name.git
+```bash
+git clone https://github.com/ModJuska123/Registration-Form-Automation-Testing-Project/tree/main
 cd your-repo-name
 npm install
 ```
