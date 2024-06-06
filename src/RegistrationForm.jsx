@@ -106,7 +106,7 @@ const RegistrationForm = () => {
           />
           {errors.dob && <p className="error">{errors.dob}</p>}
         </div>
-        <button type="submit">Submit</button>
+        <button data-cy="submit">Submit</button>
       </form>
       {submitted && (
         <div className="submitted-info">

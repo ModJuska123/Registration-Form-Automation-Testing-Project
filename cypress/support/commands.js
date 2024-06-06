@@ -1,17 +1,19 @@
-Cypress.Commands.add("fillFormAndSubmit", (username = '', email = '', password = '', dateOfBirth = '') => {
-    cy.visit('http://localhost:5173/')
+Cypress.Commands.add(
+  "fillFormAndSubmit",
+  (username = "", email = "", password = "", dateOfBirth = "") => {
+    cy.visit("http://localhost:5173/");
     if (username) {
-        cy.get('[data-cy="username"]').type(username)
+      cy.get('[data-cy="username"]').type(username);
     }
     if (email) {
-        cy.get('[data-cy="email"]').type(email)
+      cy.get('[data-cy="email"]').type(email);
     }
     if (password) {
-        cy.get('[data-cy="password"]').type(password)
+      cy.get('[data-cy="password"]').type(password);
     }
     if (dateOfBirth) {
-        cy.get('[data-cy="date-of-birth"]').type(birthDate)
+      cy.get('[data-cy="date-of-birth"]').type(birthDate);
     }
-    cy.get('[data-cy="submit"]').click()
-  });
-  
+    cy.get('[data-cy="submit"]').click();
+  }
+);
