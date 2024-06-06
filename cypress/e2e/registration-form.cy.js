@@ -1,3 +1,4 @@
+//1 part
 describe("registration form display functionality", () => {
   beforeEach(() => {
     cy.visit("http://localhost:5173");
@@ -28,6 +29,7 @@ describe("registration form display functionality", () => {
   });
 });
 
+//2 part
 describe("registration form submit functionality", () => {
   it("sees submitted information with username, email, date of birth", () => {
     // Customer goes to page
@@ -50,34 +52,7 @@ describe("registration form submit functionality", () => {
   });
 });
 
-// describe('registration form data validation', () => {
-
-//   it('checks validity of Username, Email, Password, and Date of Birth', () => {
-//     // Goes to the registration page
-//     cy.visit('http://localhost:5173')
-
-//     // Username validation: not shorter than 1 symbol
-//     cy.get('input[name="username"]').type('a')
-//     cy.get('form').submit()
-//     cy.get('input[name="username"]').should('have.value', 'a')
-
-//     // Email validation: should have "@" and "." symbols and symbols before "@", after and after "."
-//     cy.get('input[name="email"]').type('test@example.com')
-//     cy.get('form').submit()
-//     cy.get('input[name="email"]').should('have.value', 'test@example.com')
-
-//     // Password validation: not shorter than 6 symbols
-//     cy.get('input[name="password"]').type('abcdef')
-//     cy.get('form').submit()
-//     cy.get('input[name="password"]').should('have.value', 'abcdef')
-
-//     // Date of Birth validation: allow entering year, month, and date
-//     cy.get('input[name="dob"]').type('2000-01-01')
-//     cy.get('form').submit()
-//     cy.get('input[name="dob"]').should('have.value', '2000-01-01')
-//   })
-// })
-
+// 3 part
 describe("Registration form validation", () => {
   let correctUsername = "user";
   let correctEmail = "user@gmail.com";
@@ -87,10 +62,43 @@ describe("Registration form validation", () => {
   it("should display validation errors if submitted empty field", () => {
     cy.fillFormAndSubmit("", "", "", "");
 
-    cy.get(".error").should("be.visible")
-    .and("contain", "Username is required")
-    .and("contain", "Email is required")
-    .and("contain", "Password is required")
-    .and("contain", "Date of Birth is required");
+    cy.get(".error")
+      .should("be.visible")
+      .and("contain", "Username is required")
+      .and("contain", "Email is required")
+      .and("contain", "Password is required")
+      .and("contain", "Date of Birth is required");
+  });
+
+  it("should display validation errors for invalid email", () => {
+    cy.fillFormAndSubmit(
+      correctUsername,
+      "invalid-email",
+      correctPassword,
+      correctBirthDate
+    );
+    cy.get(".error").should("be.visible").and("contain", "Email is invalid");
+  });
+
+  it("should display validation errors for short password", () => {
+    cy.fillFormAndSubmit(
+      correctUsername,
+      correctEmail,
+      "321",
+      correctBirthDate
+    );
+    cy.get(".error")
+      .should("be.visible")
+      .and("contain", "Password must be at least 6 characters");
+  });
+
+  it("should inspect if date of birth have input of type 'date'", () => {
+    cy.fillFormAndSubmit(
+      correctUsername,
+      correctEmail,
+      correctPassword,
+      correctBirthDate
+    );
+    cy.get('[name="dob"]').should("have.attr", "type", "date");
   });
 });
